@@ -1,0 +1,77 @@
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: white;
+    border: 15px solid #9f9f9f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    margin: 0;
+    padding: 1rem 3rem;
+    font-style: italic;
+}
+
+.login-form input {
+    font-size: 1.2rem;
+    text-align: center;
+    background: none;
+    border: none;
+    color: black;
+    padding-top: 0.5rem;
+}
+
+.login-form label:not(:first-child) {
+    margin-top: 1rem;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+}
+
+.checkbox input {
+    vertical-align: center;
+    margin-right: 0.5rem;
+}
+
+.login-form form {
+    padding: 1rem 2rem;
+    text-align: left;
+}
+
+.login-form, .login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+#submit-btn {
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+    color: white;
+    background: #007afe;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+#submit-btn:hover {
+    background: blue;
+}
+
+hr {
+    margin: 0.7rem 0;
+    border: 0;
+    border-top: 1px solid gray;
+}
+
+#remember {
+    margin-top: 1rem;
+    accent-color: white;
+    background-color: white;
+    width: 1rem;
+    height: 1rem;
+}

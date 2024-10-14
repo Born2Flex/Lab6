@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.logo img {
+    width: 37px;
+    height: 37px;
+}
+
+.logo h1 {
+    padding-left: 0.2rem;
+    font-size: 2rem;
+    color: gray;
+}
+
+.logo h1:after {
+    content: "beta";
+    color: red;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+}

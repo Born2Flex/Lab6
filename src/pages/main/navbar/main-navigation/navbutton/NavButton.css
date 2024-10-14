@@ -1,0 +1,12 @@
+.nav-button {
+    height: 100%;
+    /*padding: 0.5rem 0.5rem;*/
+}
+
+.nav-button button {
+    padding: 0;
+    background: none;
+    color: gray;
+    font-size: 1.7rem;
+    border: none;
+}
