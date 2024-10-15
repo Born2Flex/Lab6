@@ -1,4 +1,15 @@
 .field {
     text-align: left;
     display: flex;
+    font-size: 1.2rem;
+    font-family: inherit;
 }
+
+.field h3 {
+    font-weight: 500;
+}
+
+.field:not(:first-child){
+    margin-top: 1rem;
+}
+

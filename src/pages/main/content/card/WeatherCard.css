@@ -1,0 +1,36 @@
+.weather-card {
+    width: 250px;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.weather-card hr {
+    margin: 1rem 0 0;
+}
+
+.weather-card img {
+    width: 90px;
+    height: 90px;
+    margin-top: 1.5rem;
+}
+
+.characteristics-container {
+    padding: 1rem 1.5rem;
+}
+
+.weather-card > h1 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.weather-card > h2 {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.weather-card > h3 {
+    margin-top: 0.9rem;
+    font-size: 0.9rem;
+}
+

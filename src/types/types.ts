@@ -31,6 +31,7 @@ export type DayWeather = {
     humidity: number;
     conditions: string;
     description: string;
+    dayName: string;
 };
 
 export type WeatherData = {
@@ -44,8 +45,12 @@ export type WeatherData = {
     days: DayWeather[];
 };
 
-
 export type CharacteristicData = {
     title: string,
     value: string | number,
+    temperature?: boolean,
+    windSpeed?: boolean,
+    visibility?: boolean,
+    pressure?: boolean,
+    percent?: boolean,
 }
