@@ -9,11 +9,37 @@ function App() {
         <Routes>
             <Route element={<LoginPage/>} path={"/login"} />
             <Route element={<ProtectedRoutes/>}>
-                <Route element={<MainPage/>} path={"/dashboard"} />
+                <Route element={<MainPage/>} path={"/dashboard"}/>
             </Route>
         </Routes>
       </BrowserRouter>
   )
 }
 
-export default App
+export default App;
+
+// import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+//
+// function AppRouter() {
+//     const router = createBrowserRouter([
+//         {
+//             path: "/",
+//             id: 'root',
+//             children: [
+//                 {
+//                     path: "login",
+//                     element: <LoginPage />,
+//                 },
+//                 {
+//                     path: "dashboard",
+//                     element: <MainPage />,
+//                     loader: getCoordinates,
+//                 },
+//             ],
+//         },
+//     ]);
+//
+//     return <RouterProvider router={router} />;
+// }
+//
+// export default AppRouter;

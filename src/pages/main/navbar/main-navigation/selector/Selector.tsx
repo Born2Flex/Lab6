@@ -1,18 +1,10 @@
 import "./Selector.css";
+import {Options} from "../../../../../types/types.ts";
 
-interface Option {
-    value: string;
-    text: string;
-}
-
-export interface Options {
-    options: Option[];
-}
-
-function Selector({options}: Options) {
+function Selector({options, handler}: Options) {
     return (
         <div className={"selector"}>
-            <select>
+            <select onChange={handler}>
                 {options.map(option => (
                     <option key={option.value} value={option.value}>
                         {option.text}

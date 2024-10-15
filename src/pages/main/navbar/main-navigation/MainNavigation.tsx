@@ -1,19 +1,32 @@
 import "./MainNavigation.css";
 import Logo from "./logo/Logo.tsx";
 import NavButton from "./navbutton/NavButton.tsx";
-import Selector, {Options} from "./selector/Selector.tsx";
-
-const selectorOptions: Options = {
-    options: [
-        { value: "ukr", text: "Ukrainian" },
-        { value: "eng", text: "English" },
-        { value: "ger", text: "German" }
-    ]
-};
-
+import Selector from "./selector/Selector.tsx";
+import {useContext} from "react";
+import {MainContext} from "../../MainPage.tsx";
+import {Options} from "../../../../types/types.ts";
 
 function MainNavigation() {
+    const selectorOptions: Options = {
+        options: [
+            { value: "en", text: "English" },
+            { value: "uk", text: "Ukrainian" },
+            { value: "de", text: "German" }
+        ],
+        handler: langChangeHandler
+    };
+    const context = useContext(MainContext);
 
+    function langChangeHandler(event: React.ChangeEvent<HTMLSelectElement>) {
+        if (!context) {
+            console.log("Context is not accessible!")
+        }
+        const {setLanguage} = context;
+        if (setLanguage) {
+            console.log(event.target.value);
+            setLanguage(event.target.value);
+        }
+    }
     return (
         <div className={"main-navigation"}>
             <Logo/>
@@ -23,7 +36,7 @@ function MainNavigation() {
             <NavButton title={"Map"} handler={event => {
                 event.preventDefault()
             }}/>
-            <Selector options={selectorOptions.options}/>
+            <Selector {...selectorOptions}/>
             <NavButton title={"API"} handler={event => {
                 event.preventDefault()
             }}/>

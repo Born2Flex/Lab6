@@ -1,11 +1,5 @@
 import "./NavButton.css";
-import {MouseEventHandler} from "react";
-
-
-interface ButtonData {
-    title: string,
-    handler: MouseEventHandler<HTMLButtonElement>,
-}
+import {ButtonData} from "../../../../../types/types.ts";
 
 function NavButton({title, handler}: ButtonData) {
     return (

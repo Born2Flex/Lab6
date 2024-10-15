@@ -21,7 +21,8 @@
     background: none;
     border: none;
     color: black;
-    padding-top: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.3rem;
 }
 
 .login-form label:not(:first-child) {
@@ -37,6 +38,7 @@
 .checkbox input {
     vertical-align: center;
     margin-right: 0.5rem;
+    height: 0.5rem;
 }
 
 .login-form form {
@@ -63,7 +65,7 @@
 }
 
 hr {
-    margin: 0.7rem 0;
+    margin: 0.6rem 0;
     border: 0;
     border-top: 1px solid gray;
 }
