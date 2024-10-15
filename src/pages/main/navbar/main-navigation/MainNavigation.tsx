@@ -3,6 +3,7 @@ import Logo from "./logo/Logo.tsx";
 import NavButton from "./navbutton/NavButton.tsx";
 import Selector from "./selector/Selector.tsx";
 import {useContext} from "react";
+import { useTranslation } from 'react-i18next';
 import {MainContext} from "../../MainPage.tsx";
 import {Options} from "../../../../types/types.ts";
 
@@ -16,6 +17,7 @@ function MainNavigation() {
         handler: langChangeHandler
     };
     const context = useContext(MainContext);
+    const { i18n } = useTranslation();
 
     function langChangeHandler(event: React.ChangeEvent<HTMLSelectElement>) {
         if (!context) {
@@ -23,8 +25,10 @@ function MainNavigation() {
         }
         const {setLanguage} = context;
         if (setLanguage) {
+            console.log(event);
             console.log(event.target.value);
             setLanguage(event.target.value);
+            i18n.changeLanguage(event.target.value);
         }
     }
     return (

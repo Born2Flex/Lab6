@@ -1,0 +1,14 @@
+{
+  "max": {
+    "degree": "Max"
+  },
+  "min": {
+    "degree": "Min"
+  },
+  "wind": {
+    "speed": "Wind speed"
+  },
+  "visibility": "Visibility",
+  "pressure": "Pressure",
+  "humidity": "Humidity"
+}

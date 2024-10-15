@@ -179,3 +179,7 @@ textarea {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
+select:valid {
+  border: none;
+}
