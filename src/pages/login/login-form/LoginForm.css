@@ -38,7 +38,8 @@
 .checkbox input {
     vertical-align: center;
     margin-right: 0.5rem;
-    height: 0.5rem;
+    margin-bottom: 0;
+    height: 0.6rem;
 }
 
 .login-form form {

@@ -1,5 +1,10 @@
 import {ChangeEventHandler, MouseEventHandler} from "react";
 
+export type Coordinates = {
+    longitude: number,
+    latitude: number
+}
+
 export type MainContextType = {
     language: string;
     setLanguage: (language: string) => void;

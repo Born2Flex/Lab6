@@ -2,6 +2,7 @@ import LoginPage from "./pages/login/LoginPage.tsx";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import MainPage from "./pages/main/MainPage.tsx";
 import ProtectedRoutes from "./router/ProtectedRoutes.tsx";
+import ErrorPage from "./pages/error-page/ErrorPage.tsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
             <Route element={<ProtectedRoutes/>}>
                 <Route element={<MainPage/>} path={"/dashboard"}/>
             </Route>
+            <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
   )
