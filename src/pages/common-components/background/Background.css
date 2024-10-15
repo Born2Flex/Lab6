@@ -2,17 +2,18 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: black;
 }
 
 .login {
+    justify-content: center;
+    align-items: center;
     background-image: url('../../../assets/login-page/login-background.jpg');
     background-size: cover;
     background-position: center;
 }
 
 .dashboard {
+    flex-direction: column;
     background-color: white;
 }

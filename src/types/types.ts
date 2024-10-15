@@ -43,3 +43,9 @@ export type WeatherData = {
     tzoffset: number;
     days: DayWeather[];
 };
+
+
+export type CharacteristicData = {
+    title: string,
+    value: string | number,
+}

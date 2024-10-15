@@ -2,6 +2,7 @@ import {createContext, useEffect, useState} from "react";
 import Background from "../common-components/background/Background";
 import NavBar from "./navbar/NavBar";
 import {MainContextType, WeatherData} from "../../types/types.ts";
+import WeatherBlock from "./content/WeatherBlock.tsx";
 
 export const MainContext = createContext<MainContextType | null>(null);
 function MainPage() {
@@ -16,6 +17,7 @@ function MainPage() {
                  const response = await fetch(url);
                  const data = await response.json();
                  console.log(data);
+                 setData(data);
              } catch (error) {
                  console.log(error);
              }
@@ -39,6 +41,8 @@ function MainPage() {
         <MainContext.Provider value={{language, setLanguage}}>
             <Background type={"dashboard"}>
                 <NavBar />
+                <div><h1>BAC</h1></div>
+                { data && <WeatherBlock {...data} /> }
             </Background>
         </MainContext.Provider>
     );
