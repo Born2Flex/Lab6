@@ -1,9 +1,52 @@
-.days-container {
-    /*width: 100%;*/
-    /*height: 100%;*/
+.main-container {
+    display: flex;
+    flex-direction: column;
     padding: 2rem 4rem;
+}
+
+.days-container {
+    padding-top: 2rem;
     gap: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+}
+
+.country-data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.country-data div {
+    display: flex;
+}
+
+.country-data h1 {
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.country-data p {
+    font-size: 2rem;
+}
+
+.country-data .short-info {
+    display: flex;
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.short-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.short-info h2 {
+    padding-top: 0.5rem;
+}
+
+.short-info div:nth-child(2) {
+    text-align: left;
 }

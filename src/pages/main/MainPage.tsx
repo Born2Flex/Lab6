@@ -3,21 +3,26 @@ import Background from "../common-components/background/Background";
 import NavBar from "./navbar/NavBar";
 import {MainContextType, WeatherData} from "../../types/types.ts";
 import WeatherBlock from "./content/WeatherBlock.tsx";
+import Loader from "./content/loader/Loader.tsx";
 
 export const MainContext = createContext<MainContextType | null>(null);
 function MainPage() {
     const [language, setLanguage] = useState<string>('en');
     const [data, setData] = useState<WeatherData | null>(null);
+    const [loaded, setLoaded] = useState<boolean>(false);
 
     useEffect(() => {
          async function fetchData(lat: number, lon: number) {
              try {
-                 const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/next5days?unitGroup=metric&lang=${language}&key=${import.meta.env.VITE_APP_ID}&include=days&elements=tempmax,tempmin,conditions,description,pressure,humidity,visibility,winddir,windspeed`
-                 console.log(url);
-                 const response = await fetch(url);
-                 const data = await response.json();
-                 console.log(data);
-                 setData(data);
+                 setTimeout(async () => {
+                     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/next5days?unitGroup=metric&lang=${language}&key=${import.meta.env.VITE_APP_ID}&include=days&elements=tempmax,tempmin,conditions,description,pressure,humidity,visibility,winddir,windspeed,datetime,sunrise,sunset`
+                     console.log(url);
+                     const response = await fetch(url);
+                     const data = await response.json();
+                     console.log(data);
+                     setData(data);
+                     setLoaded(true);
+                 }, 1000);
              } catch (error) {
                  console.log(error);
              }
@@ -35,14 +40,13 @@ function MainPage() {
                 fetchData(40.7128, -74.006);
             }
         );
-    }, [language]);
+    }, [language, loaded]);
 
     return (
-        <MainContext.Provider value={{language, setLanguage}}>
+        <MainContext.Provider value={{language, setLanguage, setLoaded}}>
             <Background type={"dashboard"}>
                 <NavBar />
-                <div><h1>BAC</h1></div>
-                { data && <WeatherBlock {...data} /> }
+                { loaded? <WeatherBlock {...data} /> : <Loader/> }
             </Background>
         </MainContext.Provider>
     );

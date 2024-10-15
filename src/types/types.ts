@@ -3,6 +3,7 @@ import {ChangeEventHandler, MouseEventHandler} from "react";
 export type MainContextType = {
     language: string;
     setLanguage: (language: string) => void;
+    setLoaded: (loaded: boolean) => void;
 }
 
 export type Option = {
@@ -32,6 +33,8 @@ export type DayWeather = {
     conditions: string;
     description: string;
     dayName: string;
+    sunrise: string;
+    sunset: string;
 };
 
 export type WeatherData = {
