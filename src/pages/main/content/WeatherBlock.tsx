@@ -11,7 +11,7 @@ import('dayjs/locale/uk')
 dayjs.extend(utc);
 dayjs.extend(tz);
 
-function WeatherBlock(data: WeatherData) {
+function WeatherBlock({days, timezone, tzoffset}: WeatherData) {
     const context = useContext(MainContext);
     if (!context) {
         console.log("Something is wrong, context is null");
@@ -19,7 +19,7 @@ function WeatherBlock(data: WeatherData) {
     return (
         <div className={"main-container"}>
             <div className={"country-data"}>
-                <div><h1>Location:&nbsp;</h1> <p>{data.timezone}</p></div>
+                <div><h1>Location:&nbsp;</h1> <p>{timezone}</p></div>
                 <div className={"short-info"}>
                     <div>
                         <h2>Time:&nbsp;&nbsp;</h2>
@@ -27,15 +27,15 @@ function WeatherBlock(data: WeatherData) {
                         <h2>Sunset:&nbsp;&nbsp;</h2>
                     </div>
                     <div>
-                        <h2>{dayjs.utc().add(data.tzoffset, 'hour').format('').slice(11,-4)}</h2>
-                        <h2>{data.days[0].sunrise.slice(0, -3)}</h2>
-                        <h2>{data.days[0].sunset.slice(0, -3)}</h2>
+                        <h2>{dayjs.utc().add(tzoffset, 'hour').format('').slice(11,-4)}</h2>
+                        <h2>{days[0].sunrise.slice(0, -3)}</h2>
+                        <h2>{days[0].sunset.slice(0, -3)}</h2>
                     </div>
                 </div>
             </div>
             <div className={"days-container"}>
                 {
-                    data.days.map((day, index) => {
+                    days.map((day, index) => {
                         const dayWeather: DayWeather = {...day};
                         if (context) {
                             dayWeather.dayName = getDayName(index, context);
@@ -59,7 +59,7 @@ function getDayName(offset: number, context: MainContextType): string {
         } else if (offset === 1) {
             return "Tomorrow";
         } else {
-            return dayjs().add(offset, 'day').format("dddd");
+            return dayjs().add(offset, 'day').format("ddd DD MMM");
         }
     } else if (context.language === 'uk') {
         if (offset === 0) {
@@ -67,7 +67,7 @@ function getDayName(offset: number, context: MainContextType): string {
         } else if (offset === 1) {
             return "Завтра";
         } else {
-            const day = dayjs().locale('uk').add(offset, 'day').format("dddd");
+            const day = dayjs().locale('uk').add(offset, 'day').format("ddd DD MMM");
             return day.charAt(0).toLocaleUpperCase() + day.slice(1, day.length);
         }
     } else {
@@ -76,7 +76,7 @@ function getDayName(offset: number, context: MainContextType): string {
         } else if (offset === 1) {
             return "Morgen";
         } else {
-            return dayjs().locale('de').add(offset, 'day').format("dddd");
+            return dayjs().locale('de').add(offset, 'day').format("ddd DD MMM");
         }
     }
 }

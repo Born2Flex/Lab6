@@ -46,7 +46,7 @@ function MainPage() {
         <MainContext.Provider value={{ language, setLanguage, setLoaded }}>
             <Background type={"dashboard"}>
                 <NavBar />
-                {loaded ? <WeatherBlock {...data} /> : <Loader />}
+                {loaded && data ? <WeatherBlock {...data} /> : <Loader />}
             </Background>
         </MainContext.Provider>
     );
